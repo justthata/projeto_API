@@ -1,4 +1,7 @@
 <?php
+require_once("vendor/autoload.php");
+//use App\controller\ProdutoController;
+
     //print_r($_GET);
     $rota = !empty($_GET["url"]) ? $_GET["url"] : "Nada ainda";//  Verifica se a url não está vazia, se estiver exibe um texto  caso contrário atribui o conteúdo normal
     echo $rota;
@@ -12,6 +15,28 @@
         echo "Chegou na api <hr>";
         array_shift($rota);
         print_r($rota);
+
+        // $meuProduto = new App\controller\ProdutoController();
+        // echo "<hr>";
+        // $meuProduto->inicio();
+
+        // Pegando a informação do serviço que o usuário quer acessar
+        if(!file_exists("App\controller\\".$rota[0]."Controller.php")){
+            echo "<hr> esse serviço não está disponível";
+        }
+        else{
+            $servico = "App\controller\\".ucfirst($rota[0])."Controller";// Organizando o caminho para deixar com o mesmo nome da classe da pasta controller
+            echo"<hr> {$servico}";
+
+            array_shift($rota);
+            $verboHTTP = $_SERVER["REQUEST_METHOD"];// está pegando o verbo HTTP, que é o método de envio dos dados, ou seja, GET, POST, PUT e DELETE
+
+
+        }
+
+       
+
+
     }
     else{
         echo "Tá querendo acessar outra coisa né?";

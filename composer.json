@@ -1,0 +1,15 @@
+{
+    "name": "bruno/projeto_api",
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Costa",
+            "email": "analistabrunocosta@gmail.com"
+        }
+    ],
+    "require": {}
+}
