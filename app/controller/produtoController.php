@@ -9,9 +9,9 @@ class ProdutoController{
         return "Estou no método post";
     }
     public function put($id){
-        return "Estou no método put";
+        return "Estou no método put {$id}";
     }
     public function delete($id){
-        return "Estou no método delete";
+        return "Estou no método delete {$id}";
     }
 }
